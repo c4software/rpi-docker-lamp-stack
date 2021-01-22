@@ -1,4 +1,4 @@
-# RaspberryPi 4 32bit Docker based LAMP stack
+# RaspberryPi 32bit Docker based LAMP stack
 
 The purpose of this image is to quicly build a LAMP stack with Docker using a Raspberry Pi 4 **32bit**.
 
