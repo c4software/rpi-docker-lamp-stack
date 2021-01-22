@@ -13,7 +13,8 @@ TODO:
 - Add FTP to quickly upload user file in the stack.
 - Customize the PHP Docker to enable «per user folder ~/username »
 
-**FOR TEST ONLY - DO NOT USE IT FOR PRODUCTION**
+**FOR TESTING/EVALUATION ONLY - NOT FOR PRODUCTION**
+**I REPEAT DO NOT USE IT IN PRODUCTION**
 
 ## Quick use
 
