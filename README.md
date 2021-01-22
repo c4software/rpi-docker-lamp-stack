@@ -1,4 +1,4 @@
-# Raspberry Pi 4 32bit Docker based LAMP stack
+# RaspberryPi 4 32bit Docker based LAMP stack
 
 The purpose of this image is to quicly build a LAMP stack with Docker using a Raspberry Pi 4 **32bit**.
 
@@ -22,8 +22,8 @@ TODO:
 docker-compose up -d
 ```
 
-[Access to your server (should serve the server phpinfo())](http://localhost:9000/)
-[Access to adminer](http://localhost:9000/adminer/)
+- [Access to your server (should serve the server phpinfo())](http://localhost:9000/)
+- [Access to adminer](http://localhost:9000/adminer/)
 
 For adminer :
 
