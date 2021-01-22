@@ -9,9 +9,9 @@ The purpose of this image is to quicly build a LAMP stack with Docker using a Ra
 - adminer
 
 TODO:
-- Multi-users hosting.
-- Add FTP to quickly upload user file in the stack.
-- Customize the PHP Docker to enable «per user folder ~/username »
+- Multi-users hosting :
+  - [ ] Add FTP in the compose-stack for multi-users file upload
+  - [ ] Customize the PHP Docker to enable «per userpublic directory aka ~/username »
 
 **FOR TESTING/EVALUATION ONLY - NOT FOR PRODUCTION**
 **I REPEAT DO NOT USE IT IN PRODUCTION**
