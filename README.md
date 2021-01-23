@@ -15,8 +15,8 @@ The purpose of this image is to quicly build a LAMP stack with Docker using a Ra
 docker-compose up -d
 ```
 
-- [Access to your server (should serve the server phpinfo())](http://raspberrypi.local/)
-- [Access to adminer](http://raspberrypi.local/adminer/)
+- [Test access : http://raspberrypi.local/](http://raspberrypi.local/)
+- [Adminer Access : http://raspberrypi.local/adminer/](http://raspberrypi.local/adminer/)
 
 Adminer configuration to specify :
 
