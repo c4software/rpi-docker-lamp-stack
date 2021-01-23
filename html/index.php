@@ -15,8 +15,8 @@
         <?php
             $dirs = array_diff(glob('users/*', GLOB_ONLYDIR),  array('..', '.'));
 
-	    foreach ($dirs as $dir) {
-		    $dir = basename($dir);
+	        foreach ($dirs as $dir) {
+		        $dir = basename($dir);
                 echo "<li><a href='/~$dir'>/~$dir/</a></li>";
             }
         ?>
@@ -26,9 +26,10 @@
     <h2>This Docker Stack include</h2>
     <ul>
         <li>PHP 7</li>
-        <li>Adminer</li>
+        <li>MariaDB</li>
+        <li><a href="/adminer">Adminer</a></li>
         <li>Apache mod_userdir to allow multi user document root</li>
-        <li>Basic FTP Server</li>
+        <li>Basic <a href="ftp://raspberrypi.local">FTP Server</a></li>
     </ul>
 </body>
 </html>
