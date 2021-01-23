@@ -9,6 +9,8 @@ The purpose of this image is to quicly build a LAMP stack with Docker using a Ra
 **FOR TESTING/EVALUATION ONLY - NOT FOR PRODUCTION**
 **I REPEAT DO NOT USE IT IN PRODUCTION**
 
+![Home Example](./home.png)
+
 ## Quick usage
 
 ```sh
