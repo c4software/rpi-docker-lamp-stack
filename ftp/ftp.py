@@ -24,16 +24,16 @@ class WebHookAuthorizer(DummyAuthorizer):
         return True
 
     def has_perm(self, username, perm, path=None):
-        return perm in ("l", "w", "e")
+        return True
 
     def get_msg_login(self, username):
-        return "Welcome"
+        return "Welcome {}".format(username)
 
     def get_msg_quit(self, username):
         return "Bye"
 
     def get_perms(self, username):
-        return "elw"
+        return "elwadfmwMT"
 
     def get_home_dir(self, username):
         directories = ["/ftp/{}/".format(username), "/ftp/{}/public_html/".format(username)]
