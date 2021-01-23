@@ -2,18 +2,29 @@ version: "3.7"
 services:
   web-server:
     build:
-      dockerfile: php/php.dockerfile
+      dockerfile: php/Dockerfile
       context: .
-    restart: always
+    restart: unless-stopped
     volumes:
       - "./html/:/var/www/html/"
     ports:
       - "8000:80"
+
+  ftp:
+    build:
+      dockerfile: ftp/Dockerfile
+      context: .
+    volumes:
+      - "./html/users/:/ftp/"
+    restart: unless-stopped
+    ports:
+      - "2121:21"
+
   mariadb:
     image: tobi312/rpi-mariadb:latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
+    restart: unless-stopped
+    env_file:
+      - environment.yml
     volumes:
       - mysql-data:/var/lib/mysql
 volumes:
