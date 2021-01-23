@@ -3,7 +3,7 @@ import sys
 import logging
 
 from pyftpdlib.authorizers import (DummyAuthorizer,AuthenticationFailed)
-from pyftpdlib.handlers import (FTPHandler,TLS_FTPHandler)
+from pyftpdlib.handlers import FTPHandler
 from pyftpdlib.servers import FTPServer
 
 logging.basicConfig(level=logging.INFO)

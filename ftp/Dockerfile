@@ -1,7 +1,5 @@
-FROM alpine
-RUN apk update
-RUN apk add python3 py3-pip
-RUN pip3 install pyftpdlib pyopenssl requests
+FROM python:3.7-alpine 
+RUN pip3 install pyftpdlib
 ADD ftp.py /bin/
 RUN mkdir /ftp/
 CMD python3 /bin/ftp.py 21

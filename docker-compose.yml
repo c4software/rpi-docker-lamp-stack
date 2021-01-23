@@ -12,8 +12,8 @@ services:
 
   ftp:
     build:
-      dockerfile: ftp/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: ftp/
     volumes:
       - "./html/users/:/ftp/"
     restart: unless-stopped
