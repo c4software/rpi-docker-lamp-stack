@@ -30,7 +30,7 @@ password: secret
 
 ## Upload your files
 
-The docker stack include an FTP server. The FTP server is not meant to be open to the public; Its accepts connections from all user / password pairs as long as they are identical. 
+The docker stack include an FTP server. The FTP server is not meant to be open to the public; Its accepts connections from all user / password pairs as long as they are identical.
 
 ## Example :
 
@@ -38,4 +38,6 @@ If you login with the username `valentin` the password will be `valentin`. The d
 
 [http://raspberrypi.local/~valentin](http://raspberrypi.local/~valentin)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yYruyRbhyPU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Live example
+
+[![Démo vidéo](https://img.youtube.com/vi/yYruyRbhyPU/0.jpg)](https://www.youtube.com/watch?v=yYruyRbhyPU)
