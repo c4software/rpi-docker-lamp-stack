@@ -2,8 +2,6 @@
 
 The purpose of this image is to quicly build a LAMP stack with Docker using a Raspberry Pi 4 **32bit**.
 
-**WIP Project**
-
 - Web : Apache + PHP (php 7 & adminer)
 - Database : `tobi312/rpi-mariadb` (not the official image since armv7 is not supported)
 - FTP: custom ftp service to upload your source remotely (password & username should be the same, ex. `user: sample` & `pass: sample`)
