@@ -40,4 +40,4 @@ If you login with the username `valentin` the password will be `valentin`. The d
 
 ## Live example
 
-[![Démo vidéo](https://img.youtube.com/vi/yYruyRbhyPU/0.jpg)](https://www.youtube.com/watch?v=yYruyRbhyPU)
+[![Démo vidéo](./preview.jpg)](https://www.youtube.com/watch?v=yYruyRbhyPU)
