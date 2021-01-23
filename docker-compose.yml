@@ -2,13 +2,13 @@ version: "3.7"
 services:
   web-server:
     build:
-      dockerfile: php/Dockerfile
-      context: .
+      dockerfile: Dockerfile
+      context: php/ 
     restart: unless-stopped
     volumes:
       - "./html/:/var/www/html/"
     ports:
-      - "8000:80"
+      - "80:80"
 
   ftp:
     build:
@@ -17,8 +17,9 @@ services:
     volumes:
       - "./html/users/:/ftp/"
     restart: unless-stopped
-    ports:
-      - "2121:21"
+    network_mode: "host"
+    env_file:
+      - environment.yml
 
   mariadb:
     image: tobi312/rpi-mariadb:latest

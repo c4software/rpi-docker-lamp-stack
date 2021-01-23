@@ -15,9 +15,6 @@ MAX_CONNS_PER_IP = os.environ.get("MAX_CONNS_PER_IP", 5)
 PASV_PORT_START = os.environ.get("PASV_PORT_START", 5000)
 PASV_PORT_END = os.environ.get("PASV_PORT_END", 5100)
 
-def on_login(obj, username):
-    log.info("{} is logged In".format(username))
-
 class WebHookAuthorizer(DummyAuthorizer):
     def validate_authentication(self, username, password, handler):
         if username != password:
@@ -39,23 +36,23 @@ class WebHookAuthorizer(DummyAuthorizer):
         return "elw"
 
     def get_home_dir(self, username):
-        directory = "/ftp/{}/".format(username)
-        if not os.path.exists(directory):
-            print ("Creating directory: {}".format(directory))
-            os.makedirs(directory)
-        return directory
+        directories = ["/ftp/{}/".format(username), "/ftp/{}/public_html/".format(username)]
+        for directory in directories:
+            if not os.path.exists(directory):
+                print ("Creating directory: {}".format(directory))
+                os.makedirs(directory)
+        return directories[0]
 
 
 def main(port):
     authorizer = WebHookAuthorizer()
     
     handler = FTPHandler
-    handler.on_login = on_login
     handler.permit_foreign_addresses = True   
     handler.authorizer = authorizer
     handler.banner = BANNER
     handler.passive_ports = range(int(PASV_PORT_START), int(PASV_PORT_END))
-    server = FTPServer(("", port), handler)
+    server = FTPServer(("0.0.0.0", port), handler)
     server.max_cons = int(MAX_CONNS)
     server.max_cons_per_ip = int(MAX_CONNS_PER_IP)
     server.serve_forever()

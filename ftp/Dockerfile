@@ -3,4 +3,4 @@ RUN pip3 install pyftpdlib
 ADD ftp.py /bin/
 RUN mkdir /ftp/
 CMD python3 /bin/ftp.py 21
-EXPOSE 21
+EXPOSE 21 5000-5100
