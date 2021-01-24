@@ -52,7 +52,7 @@
             <li>MariaDB</li>
             <li><a href="/adminer">Adminer</a></li>
             <li>Apache mod_userdir to allow multi user document root</li>
-            <li>Basic <a href="ftp://raspberrypi.local">FTP Server</a></li>
+            <li>Basic <a href="ftp://raspberrypi.local:20121">FTP Server</a></li>
         </ul>
     </main>
 </body>

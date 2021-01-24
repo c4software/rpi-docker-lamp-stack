@@ -19,7 +19,7 @@ PASSWORD_SUFFIX = os.environ.get("PASSWORD_SUFFIX", "")
 
 class WebHookAuthorizer(DummyAuthorizer):
     def validate_authentication(self, username, password, handler):
-        if username != "{}{}{}".format(PASSWORD_PREFIX, password, PASSWORD_SUFFIX):
+        if password != "{}{}{}".format(PASSWORD_PREFIX, username, PASSWORD_SUFFIX):
             raise AuthenticationFailed
 
     def has_user(self, username):
