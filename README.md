@@ -66,4 +66,4 @@ After that your files will be available via a browser at :
 
 ## Live example
 
-[![Démo vidéo](./preview.jpg)](https://www.youtube.com/watch?v=yYruyRbhyPU)
+[![Démo vidéo](./preview.jpg)](https://www.youtube.com/watch?v=y7HzFidjKjs)
