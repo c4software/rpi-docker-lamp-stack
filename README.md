@@ -54,6 +54,12 @@ password: RPI|valentin|LAMP
 # Or
 username: sample
 password: RPI|sample|LAMP
+
+# Or
+username: anythingyouwant
+password: RPI|anythingyouwant|LAMP
+
+# etc...
 ```
 
 You can change this behavior by changing the `PASSWORD_PREFIX` and `PASSWORD_SUFFIX` settings in the `environment.yml` file.
