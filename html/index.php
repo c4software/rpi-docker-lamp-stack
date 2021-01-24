@@ -9,6 +9,10 @@
         body {
             padding-top: 5rem;
         }
+
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +43,7 @@
                             <div class='col-sm-12 col-md-3 p-3'>
                                 <div class='card'>
                                     <div class='card-body text-center'>
-                                            <a class='link-success' href='/~$dir'>$dir</a>
+                                        <a class='link-primary stretched-link' href='/~$dir'>$dir</a>
                                     </div>
                                 </div>
                             </div>
