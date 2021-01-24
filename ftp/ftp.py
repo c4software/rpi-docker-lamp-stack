@@ -16,10 +16,11 @@ PASV_PORT_START = os.environ.get("PASV_PORT_START", 5000)
 PASV_PORT_END = os.environ.get("PASV_PORT_END", 5100)
 PASSWORD_PREFIX = os.environ.get("PASSWORD_PREFIX", "")
 PASSWORD_SUFFIX = os.environ.get("PASSWORD_SUFFIX", "")
+DISALLOWED_USERNAME = ["root", "admin", "administrator"]
 
-class WebHookAuthorizer(DummyAuthorizer):
+class Authorizer(DummyAuthorizer):
     def validate_authentication(self, username, password, handler):
-        if password != "{}{}{}".format(PASSWORD_PREFIX, username, PASSWORD_SUFFIX):
+        if username.lower() in DISALLOWED_USERNAME or password != "{}{}{}".format(PASSWORD_PREFIX, username.lower(), PASSWORD_SUFFIX):
             raise AuthenticationFailed
 
     def has_user(self, username):
@@ -39,7 +40,7 @@ class WebHookAuthorizer(DummyAuthorizer):
 
     def get_home_dir(self, username):
         # Create folder according the current username
-        folder_name = os.path.basename(username)
+        folder_name = os.path.basename(username.lower())
         directories = ["/ftp/{}/".format(folder_name), "/ftp/{}/public_html/".format(folder_name)]
         for directory in directories:
             if not os.path.exists(directory):
@@ -50,7 +51,7 @@ class WebHookAuthorizer(DummyAuthorizer):
 
 
 def main(port):
-    authorizer = WebHookAuthorizer()
+    authorizer = Authorizer()
     
     handler = FTPHandler
     handler.permit_foreign_addresses = True   

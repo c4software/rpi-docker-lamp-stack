@@ -26,21 +26,27 @@
 
         <?php 
             $dirs = array_diff(glob('users/*', GLOB_ONLYDIR),  array('..', '.'));
-
             if(sizeof($dirs) > 0){
         ?>
             <hr />
             <h2>Current user(s) base directory</h2>
-            <ul>
-                <?php
-                    $dirs = array_diff(glob('users/*', GLOB_ONLYDIR),  array('..', '.'));
-
-                    foreach ($dirs as $dir) {
-                        $dir = basename($dir);
-                        echo "<li><a href='/~$dir'>/~$dir/</a></li>";
-                    }
-                ?>
-            </ul>
+            <div class="container">
+                <div class="row">
+                    <?php
+                        foreach ($dirs as $dir) {
+                            $dir = basename($dir);
+                            echo "
+                            <div class='col-sm-12 col-md-3 p-3'>
+                                <div class='card'>
+                                    <div class='card-body text-center'>
+                                            <a class='link-success' href='/~$dir'>$dir</a>
+                                    </div>
+                                </div>
+                            </div>
+                            ";
+                        }
+                    ?>
+                </div>
         <?php
             }
         ?>
