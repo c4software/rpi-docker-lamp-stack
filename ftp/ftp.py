@@ -14,10 +14,12 @@ MAX_CONNS = os.environ.get("MAX_CONNS", 100)
 MAX_CONNS_PER_IP = os.environ.get("MAX_CONNS_PER_IP", 5)
 PASV_PORT_START = os.environ.get("PASV_PORT_START", 5000)
 PASV_PORT_END = os.environ.get("PASV_PORT_END", 5100)
+PASSWORD_PREFIX = os.environ.get("PASSWORD_PREFIX", "")
+PASSWORD_SUFFIX = os.environ.get("PASSWORD_SUFFIX", "")
 
 class WebHookAuthorizer(DummyAuthorizer):
     def validate_authentication(self, username, password, handler):
-        if username != password:
+        if username != "{}{}{}".format(PASSWORD_PREFIX, password, PASSWORD_SUFFIX):
             raise AuthenticationFailed
 
     def has_user(self, username):
@@ -36,11 +38,14 @@ class WebHookAuthorizer(DummyAuthorizer):
         return "elwadfmwMT"
 
     def get_home_dir(self, username):
-        directories = ["/ftp/{}/".format(username), "/ftp/{}/public_html/".format(username)]
+        # Create folder according the current username
+        folder_name = os.path.basename(username)
+        directories = ["/ftp/{}/".format(folder_name), "/ftp/{}/public_html/".format(folder_name)]
         for directory in directories:
             if not os.path.exists(directory):
                 print ("Creating directory: {}".format(directory))
                 os.makedirs(directory)
+
         return directories[0]
 
 
