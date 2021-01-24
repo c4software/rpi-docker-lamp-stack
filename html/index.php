@@ -33,7 +33,7 @@
             if(sizeof($dirs) > 0){
         ?>
             <hr />
-            <h2>Current user(s) base directory</h2>
+            <h2>Public user<?=sizeof($dirs)>1?'s':''?></h2>
             <div class="container">
                 <div class="row">
                     <?php
