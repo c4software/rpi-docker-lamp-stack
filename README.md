@@ -9,7 +9,7 @@ The purpose of this image is to quicly build a LAMP stack with Docker using a Ra
 | Service |        Port |
 | ------- | ----------: |
 | HTTP    |          80 |
-| FTP     |      201921 |
+| FTP     |       20121 |
 | SQL     | Not Exposed |
 
 **FOR TESTING/EVALUATION ONLY - NOT FOR PRODUCTION**
