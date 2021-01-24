@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Docker LAMP Stack for RaspberryPi</a>
             <div class="d-flex">
-                <a href="/adminer" class="btn btn-outline-success">Adminer</a>
+                <a href="/adminer" class="btn btn-outline-light">Adminer</a>
             </div>
         </div>
     </nav>
