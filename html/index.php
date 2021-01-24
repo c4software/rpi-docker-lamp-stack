@@ -26,7 +26,7 @@
     </nav>
 
     <main class="container">
-        <h4 class="text-center mt-2 mb-4">Please upload your files using your favorite FTP Software.</h4>
+        <h4 class="text-center mt-2 mb-4">You can upload your files via your favorite FTP software.</h4>
 
         <?php 
             $dirs = array_diff(glob('users/*', GLOB_ONLYDIR),  array('..', '.'));
