@@ -34,9 +34,13 @@ user: root
 password: MARIADB|secret
 ```
 
+User home directory is automatically created when the user do his first FTP connection.
+
 ## FTP : How to upload your files
 
 The provided docker stack include an FTP server. This FTP server is not meant _to be open to the public_; Its accepts connections from all user / password pairs as long as they match the correct pattern.
+
+_Password are automaticaly generated using this pattern :_
 
 ```sh
 # Example
@@ -52,15 +56,15 @@ username: sample
 password: RPI|sample|LAMP
 ```
 
-You can change this behavior by changing the `PASSWORD_PREFIX` and `PASSWORD_SUFFIX` settings in the `environnement.yml` file.
+You can change this behavior by changing the `PASSWORD_PREFIX` and `PASSWORD_SUFFIX` settings in the `environment.yml` file.
 
-## Example
+## Usage Example
 
-If you do an FTP login with the username `valentin` the password will be `RPI|valentin|LAMP`.
+If you try to do an FTP login with the username `valentin` the password will be `RPI|valentin|LAMP`.
 
-The document root of the user `valentin` will be automaticaly created on the first connexion.
+The document root of the user `valentin` and `valentin/public_html` will be automatically created on the first FTP connection.
 
-After that your files will be available via a browser at :
+After this first connection users files will be alse available via the browser at :
 
 [http://raspberrypi.local/~valentin](http://raspberrypi.local/~valentin)
 
