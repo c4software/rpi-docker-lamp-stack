@@ -35,7 +35,7 @@
             <hr />
             <h2>Public user<?=sizeof($dirs)>1?'s':''?></h2>
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <?php
                         foreach ($dirs as $dir) {
                             $dir = basename($dir);
