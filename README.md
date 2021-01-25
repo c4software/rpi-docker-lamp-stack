@@ -6,11 +6,11 @@ The purpose of this image is to quicly build an multi users LAMP stack with Dock
 - Database : `tobi312/rpi-mariadb` (not the official image since armv7 is not supported)
 - FTP: custom ftp service to upload your source remotely (see below for password / username pattern)
 
-| Service |        Port |
-| ------- | ----------: |
-| HTTP    |          80 |
-| FTP     |       20121 |
-| SQL     | Not Exposed |
+| Service |  Port |
+| ------- | ----: |
+| HTTP    |    80 |
+| FTP     | 20121 |
+| SQL     |  3306 |
 
 **FOR TESTING/EVALUATION ONLY - NOT FOR PRODUCTION**
 **I REPEAT DO NOT USE IT IN PRODUCTION**

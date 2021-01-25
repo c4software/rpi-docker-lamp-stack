@@ -3,12 +3,12 @@ services:
   web-server:
     build:
       dockerfile: Dockerfile
-      context: php/ 
+      context: php/
     restart: unless-stopped
     volumes:
       - "./html/:/var/www/html/"
     ports:
-      - "80:80"
+      - 80:80
 
   ftp:
     build:
@@ -26,6 +26,8 @@ services:
     restart: unless-stopped
     env_file:
       - environment.yml
+    ports:
+      - 3306:3306
     volumes:
       - mysql-data:/var/lib/mysql
 volumes:
