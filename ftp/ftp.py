@@ -45,14 +45,15 @@ class Authorizer(DummyAuthorizer):
         directories = ["/ftp/{}/".format(folder_name), "/ftp/{}/public_html/".format(folder_name)]
         for directory in directories:
             if not os.path.exists(directory):
-                print ("Creating directory: {}".format(directory))
+                logging.info("Creating directory: {}".format(directory))
                 os.makedirs(directory)
 
         return directories[0]
 
     def validate_user(self, username, password):
         try:
-            with open('users.json', 'r') as users:
+            with open('users.json', 'r') as json_file:
+                users = json.load(json_file)
                 if users and username in users:
                     return users[username] == password
                 elif not users:
@@ -82,6 +83,6 @@ def main(port):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("No port specified")
+        logging.error("No port specified")
         exit(-1)
     main(sys.argv[1])
