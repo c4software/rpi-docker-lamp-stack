@@ -61,7 +61,7 @@ class Authorizer(DummyAuthorizer):
             return self.validate_generated_user(username, password)
 
     def validate_generated_user(self, username, password):
-        return username.lower() in DISALLOWED_USERNAME or password != "{}{}{}".format(PASSWORD_PREFIX, username.lower(), PASSWORD_SUFFIX)
+        return username.lower() not in DISALLOWED_USERNAME and password == "{}{}{}".format(PASSWORD_PREFIX, username.lower(), PASSWORD_SUFFIX)
 
 
 def main(port):
