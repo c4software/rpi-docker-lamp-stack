@@ -38,7 +38,11 @@ User home directory is automatically created when the user do his first FTP conn
 
 ## FTP : How to upload your files
 
-The provided docker stack include an FTP server. This FTP server is not meant _to be open to the public_; Its accepts connections from all user / password pairs as long as they match the correct pattern.
+The provided docker stack include an FTP server. This FTP server _is not meant to be open to the public_
+
+### Mode 1 : Auto-generated user & password
+
+Its accepts connections from all user / password pairs as long as they match the correct pattern.
 
 _Password are automaticaly generated using this pattern :_
 
@@ -64,7 +68,7 @@ password: RPI|anythingyouwant|LAMP
 
 You can change this behavior by changing the `PASSWORD_PREFIX` and `PASSWORD_SUFFIX` settings in the `environment.yml` file.
 
-## Usage Example
+#### Usage Example
 
 If you try to do an FTP login with the username `valentin` the password will be `RPI|valentin|LAMP`.
 
@@ -73,6 +77,22 @@ The document root of the user `valentin` and `valentin/public_html` will be auto
 After this first connection users files will be alse available via the browser at :
 
 [http://raspberrypi.local/~valentin](http://raspberrypi.local/~valentin)
+
+### Mode 2 : Specified User & Password
+
+In this mode you can specify allowed user & password. The FTP stack will act like a classical FTP server. You can specify your username and password in the `ftp/users/users.json` file.
+
+_Example_
+
+```json
+{
+  "yourUsername": "yourPassword"
+}
+```
+
+⚠️ No restart required ⚠️
+
+_Note:_ The mode 1 & 2 are not enabled together. If you add and account in the `users.json` file the « Auto-generated » behavior will be disabled
 
 ## Live example
 
