@@ -16,6 +16,7 @@ services:
       context: ftp/
     volumes:
       - "./html/users/:/ftp/"
+      - "./ftp/users.json:/ftp/users.json"
     restart: unless-stopped
     network_mode: "host"
     env_file:

@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+import json
 
 from pyftpdlib.authorizers import (DummyAuthorizer,AuthenticationFailed)
 from pyftpdlib.handlers import FTPHandler
@@ -20,7 +21,7 @@ DISALLOWED_USERNAME = ["root", "admin", "administrator"]
 
 class Authorizer(DummyAuthorizer):
     def validate_authentication(self, username, password, handler):
-        if username.lower() in DISALLOWED_USERNAME or password != "{}{}{}".format(PASSWORD_PREFIX, username.lower(), PASSWORD_SUFFIX):
+        if not self.validate_user(username.lower(), password):
             raise AuthenticationFailed
 
     def has_user(self, username):
@@ -48,6 +49,19 @@ class Authorizer(DummyAuthorizer):
                 os.makedirs(directory)
 
         return directories[0]
+
+    def validate_user(self, username, password):
+        try:
+            with open('users.json', 'r') as users:
+                if username in users:
+                    return users[username] == password
+                else:
+                    return self.validate_generated_user(username, password)
+        except:
+            return self.validate_generated_user(username, password)
+
+    def validate_generated_user(self, username, password):
+        return username.lower() in DISALLOWED_USERNAME or password != "{}{}{}".format(PASSWORD_PREFIX, username.lower(), PASSWORD_SUFFIX)
 
 
 def main(port):
