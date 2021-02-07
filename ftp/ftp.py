@@ -53,7 +53,7 @@ class Authorizer(DummyAuthorizer):
     def validate_user(self, username, password):
         try:
             with open('users.json', 'r') as users:
-                if username in users:
+                if users and username in users:
                     return users[username] == password
                 else:
                     return self.validate_generated_user(username, password)
