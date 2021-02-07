@@ -52,7 +52,7 @@ class Authorizer(DummyAuthorizer):
 
     def validate_user(self, username, password):
         try:
-            with open('/ftp/users.json', 'r') as json_file:
+            with open('/users.json', 'r') as json_file:
                 users = json.load(json_file)
                 if users and username in users:
                     return users[username] == password
