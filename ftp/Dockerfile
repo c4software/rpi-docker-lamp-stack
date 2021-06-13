@@ -1,4 +1,4 @@
-FROM python:3.7-alpine 
+FROM python:3.7-alpine3.12
 RUN pip3 install pyftpdlib
 ADD ftp.py /bin/
 RUN mkdir /ftp/
