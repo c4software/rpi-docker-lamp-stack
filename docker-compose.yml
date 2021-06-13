@@ -23,7 +23,7 @@ services:
       - environment.yml
 
   mariadb:
-    image: tobi312/rpi-mariadb:latest
+    image: tobi312/rpi-mariadb:10.3-alpine
     restart: unless-stopped
     env_file:
       - environment.yml
