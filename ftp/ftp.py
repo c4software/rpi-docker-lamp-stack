@@ -1,4 +1,5 @@
 import os
+import shutil
 import sys
 import logging
 import json
@@ -47,6 +48,8 @@ class Authorizer(DummyAuthorizer):
             if not os.path.exists(directory):
                 logging.info("Creating directory: {}".format(directory))
                 os.makedirs(directory)
+                logging.info("Copy default data from '/default_data/' to {}".format(directory))
+                shutil.copytree("/default_data/", directory)
 
         return directories[0]
 

@@ -1,9 +1,9 @@
-# Multi-User Docker LAMP Stack for RaspberryPi (32bit)
+# Multi-User Docker LAMP Stack for RaspberryPi
 
-The purpose of this image is to quicly build an multi users LAMP stack with Docker using a Raspberry Pi 4 **32bit**.
+The purpose of this image is to quicly build an multi users LAMP stack with Docker using a Raspberry Pi 4.
 
 - Web : Apache + PHP (PHP 8 & adminer)
-- Database : `tobi312/rpi-mariadb` (not the official image since armv7 is not supported)
+- Database : `linuxserver/mariadb:latest`
 - FTP: custom ftp service to upload your source remotely (see below for password / username pattern)
 
 | Service |  Port |
@@ -93,6 +93,12 @@ _Example_
 ⚠️ No restart required ⚠️
 
 _Note:_ The mode 1 & 2 are not enabled together. If you add and account in the `users.json` file the « Auto-generated » behavior will be disabled
+
+### User default data
+
+When a user login for the first time, you can initialize their home folder with a number of files and folders. The files and folders will be automatically copied on the first **FTP access**. 
+
+The default files are in `/ftp/default_data`.
 
 ## Live example
 

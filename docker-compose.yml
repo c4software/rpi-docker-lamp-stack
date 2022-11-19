@@ -17,19 +17,18 @@ services:
     volumes:
       - "./html/users/:/ftp/"
       - "./ftp/users/:/ftp_users/"
+      - "./ftp/default_data/:/default_data/"
     restart: unless-stopped
     network_mode: "host"
     env_file:
       - environment.yml
 
   mariadb:
-    image: tobi312/rpi-mariadb:10.3-alpine
+    image: linuxserver/mariadb:latest
     restart: unless-stopped
     env_file:
       - environment.yml
     ports:
       - 3306:3306
     volumes:
-      - mysql-data:/var/lib/mysql
-volumes:
-  mysql-data:
+      - ./mariadb/:/config
