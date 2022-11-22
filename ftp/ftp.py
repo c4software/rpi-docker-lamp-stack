@@ -1,8 +1,8 @@
 import os
-import shutil
 import sys
 import logging
 import json
+from distutils.dir_util import copy_tree
 
 from pyftpdlib.authorizers import (DummyAuthorizer,AuthenticationFailed)
 from pyftpdlib.handlers import FTPHandler
@@ -44,12 +44,17 @@ class Authorizer(DummyAuthorizer):
         # Create folder according the current username
         folder_name = os.path.basename(username.lower())
         directories = ["/ftp/{}/".format(folder_name), "/ftp/{}/public_html/".format(folder_name)]
+        should_copy = False
         for directory in directories:
             if not os.path.exists(directory):
+                new_folder = True
                 logging.info("Creating directory: {}".format(directory))
                 os.makedirs(directory)
-                logging.info("Copy default data from '/default_data/' to {}".format(directory))
-                shutil.copytree("/default_data/", directory)
+
+        if should_copy:
+            target = "/ftp/{}/public_html/".format(folder_name)
+            logging.info("Copy default data from '/default_data/' to {}".format(target))
+            copy_tree("/default_data", target)
 
         return directories[0]
 
